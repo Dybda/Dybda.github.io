@@ -7,19 +7,48 @@
     <style>
         body {
             font-family: 'Georgia', serif;
-            color: #5a5a5a; /* a muted earth tone */
-            background-color: #f4f4f2; /* a light earthy background */
+            color: #5a5a5a; /* muted earth tone */
+            background-color: #f4f4f2; /* light earthy background */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .left-column {
+            flex: 1 0 300px; /* Adjust the flex-basis as needed */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .photo {
+            width: 100%; /* Adjust size as needed */
+            height: auto;
+            background-image: url('https://www.eui.eu/Content-Types-Assets/Uploads/People/Photos/Dybdahl-Martin-2023.x472c9c28.jpg?w=800&h=800'); /* Add your photo URL */
+            background-size: cover;
+            background-position: center;
+            min-height: 600px; /* Adjust based on your preference */
+        }
+        .about-me {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+        .right-column {
+            flex: 2 1 600px; /* Adjust the flex-basis as needed */
+            padding: 20px;
         }
         header, footer {
             background-color: #ddd6ce;
             color: #333;
             padding: 10px 20px;
             text-align: center;
+            width: 100%;
         }
         section {
-            margin: 20px;
+            margin-top: 20px;
             padding: 20px;
             background-color: #fff;
+            border: 1px solid #ccc;
         }
         a {
             color: #5a5a5a;
@@ -37,36 +66,43 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Martin Dybdahl</h1>
-        <p>Political Sociologist - The European University Institute</p>
-        <p>Email: <a href="mailto:Martin.Dybdahl@eui.eu">Martin.Dybdahl@eui.eu</a></p>
-    </header>
+    <div class="left-column">
+        <div class="photo">
+            <!-- Photo is set as background -->
+        </div>
+        <div class="about-me">
+            <h2>About Me</h2>
+            <p>I am a Danish Phd student researching how higher education impacts democratic outcomes. I am supervised by Prof. Herman van de Werfhorst and Prof. Simon Hix at the European University Institute</p>
+        </div>
+    </div>
+    <div class="right-column">
+        <header>
+            <h1>Martin Dybdahl</h1>
+            <p>Political Sociologist - The European University Institute</p>
+            <p>Email: <a href="mailto:Martin.Dybdahl@eui.eu">Martin.Dybdahl@eui.eu</a></p>
+        </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a Danish Phd student researching how higher education impacts democratic outcomes. I am supervised by Prof. Herman van de Werfhorst and Prof. Simon Hix at the European University Institute</p>
-    </section>
+        <section id="publications">
+            <h2>Publications</h2>
+            <ul>
+                <li>Governance reforms and public acceptance of regulatory decisions: Cross-national evidence from linked survey experiments on pesticides authorization in the European Union <em>Regulation & Governance</em>, 2023</li>
+                <!-- Add more publications here -->
+            </ul>
+        </section>
 
-    <section id="publications">
-        <h2>Publications</h2>
-        <ul>
-            <li>Governance reforms and public acceptance of regulatory decisions: Cross-national evidence from linked survey experiments on pesticides authorization in the European Union <em>Regulation & Governance</em>, 2023</li>
-            <!-- Add more publications here -->
-        </ul>
-    </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="https://https://euandi.eu/">EU&I</a> A comprehensive VAA for the EP2024- Helping people navigate the EU elections ecosystem.</li>
+                <!-- Add more projects with links here -->
+            </ul>
+        </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="https://https://euandi.eu/">EU&I</a> A comprehensive VAA for the EP2024- Helping people navigate the EU elections ecosystem.</li>
-            <!-- Add more projects with links here -->
-        </ul>
-    </section>
-
-    <footer>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/martin1918/">LinkedIn</a>, <a href="https://orcid.org/0000-0003-3175-385X">Orcid</a>, and <a href="https://scholar.google.com/citations?user=_CCTDNgAAAAJ">Google Scholar</a>.</p>
-        <!--a href="path_to_your_resume.pdf" class="download" download>Download My Resume</a-->
-    </footer>
+        <footer>
+            <p>Connect with me on <a href="https://www.linkedin.com/in/martin1918/">LinkedIn</a>, <a href="https://orcid.org/0000-0003-3175-385X">Orcid</a>, and <a href="https://scholar.google.com/citations?user=_CCTDNgAAAAJ">Google Scholar</a>.</p>
+            <!--a href="path_to_your_resume.pdf" class="download" download>Download My Resume</a-->
+        </footer>
+    </div>
 </body>
 </html>
+
