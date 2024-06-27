@@ -3,126 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Resume</title>
+    <title>Academic Resume - Martin Dybdahl</title>
     <style>
         body {
             font-family: 'Georgia', serif;
-            color: #5a5a5a; /* muted earth tone */
-            background-color: #f4f4f2; /* light earthy background */
+            color: #4a4a4a; /* Slightly darker muted tone */
+            background-color: #f7f7f7; /* Softer background */
+            margin: 0;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-        }
-        .left-column {
-            flex: 1 0 300px; /* Adjust the flex-basis as needed */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 20px;
         }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .left-column {
+            background-color: #fbfbfb;
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid #e0e0e0;
+        }
         .photo {
-            width: 100%; /* Adjust size as needed */
+            width: 100%;
             height: auto;
             background-image: url('https://www.eui.eu/Content-Types-Assets/Uploads/People/Photos/Dybdahl-Martin-2023.x472c9c28.jpg?w=800&h=800'); /* Add your photo URL */
             background-size: cover;
             background-position: center;
-            min-height: 600px; /* Adjust based on your preference */
+            min-height: 300px; /* Adjust based on your preference */
         }
         .about-me {
-            text-align: center;
-            padding: 20px;
-            width: 100%;
+            margin-top: 20px;
         }
         .right-column {
-            flex: 2 1 600px; /* Adjust the flex-basis as needed */
             padding: 20px;
         }
-        header, footer {
+        header {
             background-color: #ddd6ce;
             color: #333;
-            padding: 10px 20px;
+            padding: 20px;
             text-align: center;
-            width: 100%;
         }
         section {
             margin-top: 20px;
+        }
+        section h2 {
+            cursor: pointer;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0;
+        }
+        section ul {
+            display: none;
             padding: 20px;
+            list-style: none;
             background-color: #fff;
             border: 1px solid #ccc;
+            border-top: none;
         }
-        a {
-            color: #5a5a5a;
+        section ul li {
+            margin-bottom: 10px;
         }
-        .download {
-            background-color: #b8a398;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            display: block;
-            width: 180px;
-            margin: 20px auto;
+        section ul li a {
+            color: #1e88e5;
             text-decoration: none;
+        }
+        section ul li a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #ddd6ce;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="left-column">
-        <div class="photo">
-            <!-- Photo is set as background -->
+    <div class="container">
+        <div class="left-column">
+            <div class="photo">
+                <!-- Photo is set as background -->
+            </div>
+            <div class="about-me">
+                <h2>About Me</h2>
+                <p>I am a Danish PhD student researching how higher education impacts democratic outcomes. I am supervised by Prof. Herman van de Werfhorst and Prof. Simon Hix at the European University Institute.</p>
+            </div>
         </div>
-        <div class="about-me">
-            <h2>About Me</h2>
-            <p>I am a Danish Phd student researching how higher education impacts democratic outcomes. I am supervised by Prof. Herman van de Werfhorst and Prof. Simon Hix at the European University Institute</p>
+        <div class="right-column">
+            <header>
+                <h1>Martin Dybdahl</h1>
+                <p>Political Sociologist - The European University Institute</p>
+                <p>Email: <a href="mailto:Martin.Dybdahl@eui.eu">Martin.Dybdahl@eui.eu</a></p>
+            </header>
+
+            <section id="projects">
+                <h2>Ongoing Projects</h2>
+                <ul>
+                    <li><a href="https://euandi.eu/">EU&I</a> A comprehensive VAA for the EP2024- Helping people navigate the EU elections ecosystem.</li>
+                    <!-- Add more projects with links here -->
+                </ul>
+            </section>
+
+            <section id="publications">
+                <h2>Publications</h2>
+                <ul>
+                    <li>Governance reforms and public acceptance of regulatory decisions: Cross-national evidence from linked survey experiments on pesticides authorization in the European Union <em>Regulation & Governance</em>, 2023</li>
+                    <li>Final report on the Governance of Exit <em>AdMiGov</em>, 2022</li>
+                    <li>EU pesticides regulation: how public support can be rebuilt <em> LSE EUROPP Blog</em>, 2021</li>
+                </ul>
+            </section>
+            
+            <section id="work-experience">
+                <h2>Work Experience</h2>
+                <ul>
+                    <li>Team Leader, Danish Country Experts, EU&I Voting Advice Application (Florence, Italy) - Led a team coding party positions, collaborated with EP candidates and political parties as part of building a VAA that in 2019 engaged 1.20 million voters across the EU. Website launches May 9th 2024.</li>
+                    <li>Researcher, Vrije Universiteit Amsterdam (Amsterdam, Netherlands) - I worked for the Amsterdam Center for Learning Analytics (ACLA) as an independent researcher, equivalent to a PhD, specializing in learning analytics and machine learning to address teacher attrition in the Netherlands.</li>
+                    <li>Research Assistant, under Prof. Theresa Kuhn, as part of the COVIDEU project at the University of Amsterdam (Amsterdam, Netherlands) - Managed data collection, cleaning, and administrative tasks with PhD candidate Lisa Herbig.</li>
+                    <li>Research Assistant, under Prof. Jonathan Zeitlin at the Amsterdam Centre for European Studies, University of Amsterdam (Amsterdam, Netherlands) - Authored statistical analyses for peer-reviewed research on environmental policy. <a href="https://doi.org/10.1111/rego.12483">Peer-reviewed Publication</a></li>
+                    <li>Internship, under Dr. Barak Kalir as part of the cross-national AdMiGov project, University of Amsterdam (Amsterdam, Netherlands) - I co-authored the research paper with Dr. Kalir, the paper evaluates the current state of EU exit regimes. The analysis was based on qualitative and quantitative data sources. <a href="https://admigov.eu/publications/">WORK PACKAGE REPORT</a></li>
+                </ul>
+            </section>
+
+            <section id="honors">
+                <h2>Honors</h2>
+                <ul>
+                    <li><a href="https://archive.ph/dFW3K">UNWTO</a> The value of Human Rights on the Camino de Santiago representing Denmark for Copenhagen Business School.</li>
+                    <!-- Add more honors with links here -->
+                </ul>
+            </section>
+
+            <footer>
+                <p>Connect with me on <a href="https://www.linkedin.com/in/martin1918/">LinkedIn</a>, <a href="https://orcid.org/0000-0003-3175-385X">Orcid</a>, and <a href="https://scholar.google.com/citations?user=_CCTDNgAAAAJ">Google Scholar</a>.</p>
+                <!-- <a href="path_to_your_resume.pdf" class="download" download>Download My Resume</a> -->
+            </footer>
         </div>
     </div>
-    <div class="right-column">
-        <header>
-            <h1>Martin Dybdahl</h1>
-            <p>Political Sociologist - The European University Institute</p>
-            <p>Email: <a href="mailto:Martin.Dybdahl@eui.eu">Martin.Dybdahl@eui.eu</a></p>
-        </header>
 
-        <section id="projects">
-            <h2>Ongoing projects</h2>
-            <ul>
-                <li><a href="https://https://euandi.eu/">EU&I</a> A comprehensive VAA for the EP2024- Helping people navigate the EU elections ecosystem.</li>
-                <!-- Add more projects with links here -->
-            </ul>
-        </section>
-
-        <section id="publications">
-            <h2>Publications</h2>
-            <ul>
-                <li>Governance reforms and public acceptance of regulatory decisions: Cross-national evidence from linked survey experiments on pesticides authorization in the European Union <em>Regulation & Governance</em>, 2023</li>
-                <li>Final report on the Governance of Exit <em>AdMiGov</em>, 2022</li>
-                <li>EU pesticides regulation: how public support can be rebuilt <em> LSE EUROPP Blog</em>, 2021</li>
-            </ul>
-        </section>
-        
-        <section id="work-experience">
-            <h2>Work Experience</h2>
-            <ul>
-                <li>Team Leader, Danish Country Experts, EU&I Voting Advice Application (Florence, Italy) - Led a team coding party positions, collaborated with EP candidates and political parties as part of building a VAA that in 2019 engaged 1.20 million voters across the EU. Website launches May 9th 2024.</li>
-                <li>Researcher, Vrije Universiteit Amsterdam (Amsterdam, Netherlands) - I worked for the Amsterdam Center for Learning Analytics (ACLA) as an independent researcher, equivalent to a PhD, specializing in learning analytics and machine learning to address teacher attrition in the Netherlands.</li>
-                <li>Research Assistant, under prof. Theresa Kuhn, as part of the COVIDEU project at the University of Amsterdam (Amsterdam, Netherlands) - Managed data collection, cleaning, and administrative tasks with PhD candidate Lisa Herbig.</li>
-                <li>Research Assistant, under prof. Jonathan Zeitlin at the Amsterdam Centre for European Studies, University of Amsterdam (Amsterdam, Netherlands) - Authored statistical analyses for peer-reviewed research on environmental policy. <a href="https://doi.org/10.1111/rego.12483">Peer-reviewed Publication</a></li>
-                <li>Internship, under Dr. Barak Kalir as part of the cross-national AdMiGov project, University of Amsterdam (Amsterdam, Netherlands) - I co-authored the research paper with Dr. Kalir, the paper evaluates the current state of EU exit regimes. The analysis was based on qualitative and quantitative data sources. <a href="https://admigov.eu/publications/">WORK PACKAGE REPORT</a></li>
-            </ul>
-
-        </section>
-
-        <section id="honors">
-            <h2>Honors</h2>
-            <ul>
-                <li><a href="https://archive.ph/dFW3K">UNWTO</a> The value of Human Rights on the Camino de Santiago representing Denmark for Copenhagen Business School</li>
-                <!-- Add more projects with links here -->
-            </ul>
-        </section>
-        <footer>
-            <p>Connect with me on <a href="https://www.linkedin.com/in/martin1918/">LinkedIn</a>, <a href="https://orcid.org/0000-0003-3175-385X">Orcid</a>, and <a href="https://scholar.google.com/citations?user=_CCTDNgAAAAJ">Google Scholar</a>.</p>
-            <!--a href="path_to_your_resume.pdf" class="download" download>Download My Resume</a-->
-        </footer>
-    </div>
+    <script>
+        document.querySelectorAll('section h2').forEach(header => {
+            header.addEventListener('click', () => {
+                const ul = header.nextElementSibling;
+                ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>
-
