@@ -1,198 +1,220 @@
-<style>
-        /* Terminal/console font stack */
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
-        
-        :root {
-            --bg-color: #f8f8f8;
-            --text-color: #2a2a2a;
-            --accent-color: #333;
-            --secondary-bg: #e6e6e6;
-            --border-color: #ccc;
-            --link-color: #0366d6;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin: 0 20px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            padding: 5px 0;
-        }
-        
-        nav a.active {
-            color: var(--link-color);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--link-color);
-            transition: width 0.3s;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        /* Main layout */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        
-        /* Image and About section */
-        .profile {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .profile-image {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background-color: var(--secondary-bg);
-            margin-bottom: 20px;
-        }
-        
-        .about h2 {
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-        }
-        
-        .about p {
-            margin-bottom: 15px;
-        }
-        
-        /* Projects section */
-        .projects h2 {
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-        }
-        
-        .project {
-            margin-bottom: 30px;
-        }
-        
-        .project h3 {
-            margin-bottom: 10px;
-        }
-        
-        .project p {
-            margin-bottom: 10px;
-        }
-        
-        .project a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-        
-        .project a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Past and Future pages */
-        .content-section {
-            margin-bottom: 40px;
-        }
-        
-        .content-section h2 {
-            font-size: 1.5em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-        
-        .content-section h3 {
-            margin: 20px 0 10px;
-        }
-        
-        .content-section ul {
-            padding-left: 20px;
-        }
-        
-        .content-section li {
-            margin-bottom: 10px;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9em;
-        }
-        
-        footer a {
-            color: var(--link-color);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .two-column {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .profile-image {
-                aspect-ratio: 16/9;
-            }
-        }
-    </style>
+/* Terminal/console font stack */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
+
+:root {
+    --bg-color: #f8f8f8;
+    --text-color: #2a2a2a;
+    --accent-color: #333;
+    --secondary-bg: #e6e6e6;
+    --border-color: #ccc;
+    --link-color: #0366d6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a.active {
+    color: var(--link-color);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--link-color);
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Main layout - Updated to flexbox for better control */
+.two-column {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.profile {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--secondary-bg);
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about {
+    flex: 1 1 300px;
+}
+
+.about h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.about p {
+    margin-bottom: 15px;
+}
+
+/* Projects section - Updated to be full width */
+.projects {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.projects h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.project {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: var(--secondary-bg);
+    border-left: 4px solid var(--accent-color);
+}
+
+.project h3 {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.project p {
+    margin-bottom: 10px;
+}
+
+.project a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.project a:hover {
+    text-decoration: underline;
+}
+
+/* Rest of the existing styles remain the same */
+.content-section {
+    margin-bottom: 40px;
+}
+
+.content-section h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.content-section h3 {
+    margin: 20px 0 10px;
+}
+
+.content-section ul {
+    padding-left: 20px;
+}
+
+.content-section li {
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .two-column {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .profile {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    
+    .profile-image {
+        aspect-ratio: 16/9;
+    }
+}
