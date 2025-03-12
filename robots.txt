@@ -1,0 +1,6 @@
+# Robots.txt Academic Website
+
+User-agent: *
+Allow: /
+
+Sitemap: https://martindybdahl.com/sitemap.xml
