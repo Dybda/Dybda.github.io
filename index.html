@@ -62,17 +62,9 @@
         <!-- Navigation -->
         <nav>
             <ul>
-                <li>
-                    <a href="index.html" class="active" data-page="index.html">Present</a>
-                </li>
-                <li>
-                    <a href="past.html" data-page="past.html">Past</a>
-                    <div class="nav-preview" id="preview-past"></div>
-                </li>
-                <li>
-                    <a href="future.html" data-page="future.html">Future</a>
-                    <div class="nav-preview" id="preview-future"></div>
-                </li>
+                <li><a href="index.html" class="active" data-page="index.html">Present</a></li>
+                <li><a href="past.html" data-page="past.html">Past</a></li>
+                <li><a href="future.html" data-page="future.html">Future</a></li>
             </ul>
         </nav>
         
@@ -122,7 +114,7 @@
 
         <!-- Footer -->
         <footer>
-            <p>© 2026 Martin Dybdahl | <a href="mailto:martin.dybdahl@eui.eu">Email</a> | <a href="#">CV</a> | <a href="https://scholar.google.com/citations?user=_CCTDNgAAAAJ&hl=en&authuser=2&oi=ao">Google Scholar</a></p>
+            <p>© 2026 Martin Dybdahl | <a href="mailto:martin.dybdahl@eui.eu">Email</a> | <a href="https://www.linkedin.com/in/martin1918/" target="_blank">LinkedIn</a> | <a href="https://scholar.google.com/citations?user=_CCTDNgAAAAJ&hl=en&authuser=2&oi=ao">Google Scholar</a></p>
         </footer>
     </div>
 <script>
@@ -135,31 +127,20 @@
         return doc.getElementById('page-content');
     }
 
-    function extractPreview(html) {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const content = doc.getElementById('page-content');
-        if (!content) return '';
-        // Grab first 3 sections for preview
-        const sections = content.querySelectorAll('.content-section, .projects, .about');
-        let preview = '';
-        let count = 0;
-        sections.forEach(s => {
-            if (count < 2) { preview += s.innerHTML; count++; }
-        });
-        return preview || content.innerHTML.substring(0, 600);
+    function prefetch(href) {
+        if (!pageCache[href]) {
+            fetch(href).then(r => r.text()).then(html => { pageCache[href] = html; });
+        }
     }
 
     function navigate(href) {
         if (pageCache[href]) {
             swapContent(href, pageCache[href]);
         } else {
-            fetch(href)
-                .then(r => r.text())
-                .then(html => {
-                    pageCache[href] = html;
-                    swapContent(href, html);
-                });
+            fetch(href).then(r => r.text()).then(html => {
+                pageCache[href] = html;
+                swapContent(href, html);
+            });
         }
     }
 
@@ -169,9 +150,8 @@
         const container = document.getElementById('page-content');
         container.innerHTML = newContent.innerHTML;
         container.classList.remove('page-content');
-        void container.offsetWidth; // reflow
+        void container.offsetWidth;
         container.classList.add('page-content');
-        // Update active nav link
         document.querySelectorAll('nav a').forEach(a => {
             a.classList.toggle('active', a.getAttribute('data-page') === href);
         });
@@ -179,28 +159,9 @@
         window.scrollTo(0, 0);
     }
 
-    function prefetchAndPreview(href, previewId) {
-        const el = document.getElementById(previewId);
-        if (!el) return;
-        if (pageCache[href]) {
-            el.innerHTML = extractPreview(pageCache[href]);
-            return;
-        }
-        fetch(href)
-            .then(r => r.text())
-            .then(html => {
-                pageCache[href] = html;
-                el.innerHTML = extractPreview(html);
-            });
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
-        // Prefetch and wire up previews
-        prefetchAndPreview('past.html', 'preview-past');
-        prefetchAndPreview('future.html', 'preview-future');
-
-        // Intercept nav clicks
         document.querySelectorAll('nav a[data-page]').forEach(a => {
+            a.addEventListener('mouseenter', function() { prefetch(this.getAttribute('data-page')); });
             a.addEventListener('click', function(e) {
                 e.preventDefault();
                 navigate(this.getAttribute('data-page'));
