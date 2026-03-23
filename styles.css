@@ -86,11 +86,10 @@ nav li {
 }
 
 .nav-preview {
-    display: none;
     position: absolute;
     top: calc(100% + 12px);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-4px);
     width: 320px;
     max-height: 260px;
     overflow: hidden;
@@ -104,7 +103,8 @@ nav li {
     line-height: 1.5;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
     text-align: left;
 }
 
@@ -120,8 +120,10 @@ nav li {
 }
 
 nav li:hover .nav-preview {
-    display: block;
     opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0s;
 }
 
 .nav-preview h2 {
