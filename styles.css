@@ -80,6 +80,77 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* Page preview tooltip on nav hover */
+nav li {
+    position: relative;
+}
+
+.nav-preview {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    max-height: 260px;
+    overflow: hidden;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    padding: 14px 16px;
+    z-index: 100;
+    font-size: 0.78em;
+    line-height: 1.5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    text-align: left;
+}
+
+.nav-preview::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: linear-gradient(transparent, var(--bg-color));
+    pointer-events: none;
+}
+
+nav li:hover .nav-preview {
+    display: block;
+    opacity: 1;
+}
+
+.nav-preview h2 {
+    font-size: 1em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.nav-preview h3 {
+    font-size: 0.9em;
+    margin: 6px 0 3px;
+}
+
+.nav-preview p, .nav-preview li {
+    color: #666;
+    margin-bottom: 4px;
+}
+
+/* Page transition */
+.page-content {
+    animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Main layout - Updated to flexbox for better control */
 .two-column {
     display: flex;

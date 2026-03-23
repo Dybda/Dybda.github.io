@@ -62,12 +62,21 @@
         <!-- Navigation -->
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Present</a></li>
-                <li><a href="past.html">Past</a></li>
-                <li><a href="future.html">Future</a></li>
+                <li>
+                    <a href="index.html" class="active" data-page="index.html">Present</a>
+                </li>
+                <li>
+                    <a href="past.html" data-page="past.html">Past</a>
+                    <div class="nav-preview" id="preview-past"></div>
+                </li>
+                <li>
+                    <a href="future.html" data-page="future.html">Future</a>
+                    <div class="nav-preview" id="preview-future"></div>
+                </li>
             </ul>
         </nav>
         
+        <div id="page-content" class="page-content">
         <!-- Main Content - Martin Dybdahl Present (Home) -->
         <div class="two-column">
             <!-- Left Column - Profile Image and About -->
@@ -109,10 +118,100 @@
             </div>
         </div>
         
+        </div><!-- /#page-content -->
+
         <!-- Footer -->
         <footer>
-            <p>© 2025 Martin Dybdahl | <a href="mailto:martin.dybdahl@eui.eu">Email</a> | <a href="#">CV</a> | <a href="https://scholar.google.com/citations?user=_CCTDNgAAAAJ&hl=en&authuser=2&oi=ao">Google Scholar</a></p>
+            <p>© 2026 Martin Dybdahl | <a href="mailto:martin.dybdahl@eui.eu">Email</a> | <a href="#">CV</a> | <a href="https://scholar.google.com/citations?user=_CCTDNgAAAAJ&hl=en&authuser=2&oi=ao">Google Scholar</a></p>
         </footer>
     </div>
+<script>
+(function() {
+    const pageCache = {};
+
+    function extractContent(html) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        return doc.getElementById('page-content');
+    }
+
+    function extractPreview(html) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const content = doc.getElementById('page-content');
+        if (!content) return '';
+        // Grab first 3 sections for preview
+        const sections = content.querySelectorAll('.content-section, .projects, .about');
+        let preview = '';
+        let count = 0;
+        sections.forEach(s => {
+            if (count < 2) { preview += s.innerHTML; count++; }
+        });
+        return preview || content.innerHTML.substring(0, 600);
+    }
+
+    function navigate(href) {
+        if (pageCache[href]) {
+            swapContent(href, pageCache[href]);
+        } else {
+            fetch(href)
+                .then(r => r.text())
+                .then(html => {
+                    pageCache[href] = html;
+                    swapContent(href, html);
+                });
+        }
+    }
+
+    function swapContent(href, html) {
+        const newContent = extractContent(html);
+        if (!newContent) { window.location.href = href; return; }
+        const container = document.getElementById('page-content');
+        container.innerHTML = newContent.innerHTML;
+        container.classList.remove('page-content');
+        void container.offsetWidth; // reflow
+        container.classList.add('page-content');
+        // Update active nav link
+        document.querySelectorAll('nav a').forEach(a => {
+            a.classList.toggle('active', a.getAttribute('data-page') === href);
+        });
+        window.history.pushState({ href }, '', href);
+        window.scrollTo(0, 0);
+    }
+
+    function prefetchAndPreview(href, previewId) {
+        const el = document.getElementById(previewId);
+        if (!el) return;
+        if (pageCache[href]) {
+            el.innerHTML = extractPreview(pageCache[href]);
+            return;
+        }
+        fetch(href)
+            .then(r => r.text())
+            .then(html => {
+                pageCache[href] = html;
+                el.innerHTML = extractPreview(html);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Prefetch and wire up previews
+        prefetchAndPreview('past.html', 'preview-past');
+        prefetchAndPreview('future.html', 'preview-future');
+
+        // Intercept nav clicks
+        document.querySelectorAll('nav a[data-page]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                navigate(this.getAttribute('data-page'));
+            });
+        });
+    });
+
+    window.addEventListener('popstate', function(e) {
+        if (e.state && e.state.href) navigate(e.state.href);
+    });
+})();
+</script>
 </body>
 </html>
