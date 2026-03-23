@@ -80,16 +80,6 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* Page transition */
-.page-content {
-    animation: fadeIn 0.18s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
 /* Main layout - Updated to flexbox for better control */
 .two-column {
     display: flex;
