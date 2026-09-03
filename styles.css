@@ -16,10 +16,14 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.7;
     color: var(--text-color);
     background-color: var(--bg-color);
     margin: 0;
@@ -40,6 +44,10 @@ nav {
     margin-bottom: 40px;
     padding: 15px 0;
     border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-color);
 }
 
 nav ul {
@@ -80,6 +88,27 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* Continuous-scroll sections */
+.scroll-section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-color);
+    scroll-margin-top: 72px;
+}
+
+.scroll-section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 1.9em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--link-color);
+    margin-bottom: 30px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
 /* Main layout - Updated to flexbox for better control */
 .two-column {
     display: flex;
@@ -88,13 +117,14 @@ nav a:hover::after {
 }
 
 .profile {
-    flex: 0 0 300px;
+    flex: 0 0 200px;
     display: flex;
     flex-direction: column;
 }
 
 .profile-image {
     width: 100%;
+    max-width: 200px;
     aspect-ratio: 1/1;
     background-color: var(--secondary-bg);
     margin-bottom: 20px;
@@ -107,7 +137,7 @@ nav a:hover::after {
 }
 
 .about {
-    flex: 1 1 300px;
+    flex: 1 1 420px;
 }
 
 .about h2 {
@@ -119,6 +149,7 @@ nav a:hover::after {
 
 .about p {
     margin-bottom: 15px;
+    font-size: 1.05em;
 }
 
 /* Projects section - Updated to be full width */
@@ -144,10 +175,12 @@ nav a:hover::after {
 .project h3 {
     margin-bottom: 10px;
     color: var(--accent-color);
+    font-size: 1.2em;
 }
 
 .project p {
     margin-bottom: 10px;
+    font-size: 1.03em;
 }
 
 .project a {
@@ -157,6 +190,54 @@ nav a:hover::after {
 
 .project a:hover {
     text-decoration: underline;
+}
+
+/* Detail-page helpers */
+.breadcrumb {
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.subtitle {
+    font-size: 1.15em;
+    color: var(--accent-color);
+    margin: 8px 0 16px;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin: 12px 0;
+    font-size: 0.95em;
+}
+
+.project-meta span {
+    background-color: var(--secondary-bg);
+    border-left: 3px solid var(--accent-color);
+    padding: 4px 10px;
+}
+
+.coauthors {
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.downloads {
+    margin: 16px 0;
+    padding: 10px 14px;
+    background-color: var(--secondary-bg);
+    border-left: 4px solid var(--accent-color);
+}
+
+.downloads a {
+    color: var(--link-color);
+    font-weight: 700;
+    text-decoration: none;
 }
 
 /* Rest of the existing styles remain the same */
@@ -181,6 +262,11 @@ nav a:hover::after {
 
 .content-section li {
     margin-bottom: 10px;
+    font-size: 1.03em;
+}
+
+.content-section > p {
+    font-size: 1.03em;
 }
 
 /* Footer */
@@ -208,13 +294,14 @@ footer a:hover {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .profile {
         flex: 1 1 100%;
         max-width: 100%;
+        align-items: center;
     }
-    
-    .profile-image {
-        aspect-ratio: 16/9;
+
+    .section-title {
+        font-size: 1.5em;
     }
 }

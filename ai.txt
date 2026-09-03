@@ -1,0 +1,20 @@
+# ai.txt — AI training, mining, and scraping policy for martindybdahl.com
+#
+# All content on this site (text, images, PDFs, data, and markup) is
+# reserved by its author. It may NOT be used, in whole or in part, for:
+#   - training, fine-tuning, evaluating, or grounding machine-learning or
+#     generative-AI models;
+#   - retrieval-augmented generation, embeddings, or vector indexing;
+#   - text and data mining (TDM) or dataset construction;
+#   - automated summarisation, republication, or resale.
+#
+# This reservation is made under Article 4(3) of EU Directive 2019/790
+# (DSM Directive) and equivalent rights elsewhere. No licence is granted.
+# Contact the author in writing for any permission.
+
+User-Agent: *
+Disallow: /
+
+# Structured equivalents:
+#   /robots.txt                  — crawler-level blocklist
+#   /.well-known/tdmrep.json     — TDM Reservation Protocol (W3C)

@@ -1,7 +1,226 @@
-# Robots.txt Martin Dybdahl Academic Profile
+# robots.txt — Martin Dybdahl Academic Profile
+# Policy: general web/search crawling is allowed; AI/LLM training and
+# scraping crawlers are blocked without exception. Text and data mining
+# rights are reserved (see /ai.txt and /.well-known/tdmrep.json).
+
+# ----------------------------------------------------------------------
+# AI / LLM / dataset crawlers — DISALLOWED (no exceptions)
+# ----------------------------------------------------------------------
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Claude-User
+Disallow: /
+
+User-agent: Claude-SearchBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Anthropic
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GoogleOther
+Disallow: /
+
+User-agent: Google-CloudVertexBot
+Disallow: /
+
+User-agent: GoogleAgent-Mariner
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Perplexity-User
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: img2dataset
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: magpie-crawler
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: peer39_crawler
+Disallow: /
+
+User-agent: peer39_crawler/1.0
+Disallow: /
+
+User-agent: TurnitinBot
+Disallow: /
+
+User-agent: iaskspider/2.0
+Disallow: /
+
+User-agent: ISSCyberRiskCrawler
+Disallow: /
+
+User-agent: VelenPublicWebCrawler
+Disallow: /
+
+User-agent: Sidetrade indexer bot
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: Ai2Bot-Dolma
+Disallow: /
+
+User-agent: FriendlyCrawler
+Disallow: /
+
+User-agent: PhindBot
+Disallow: /
+
+User-agent: Poseidon Research Crawler
+Disallow: /
+
+User-agent: QualifiedBot
+Disallow: /
+
+User-agent: SBIntuitionsBot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: Kangaroo Bot
+Disallow: /
+
+User-agent: Crawlspace
+Disallow: /
+
+User-agent: ProRataInc
+Disallow: /
+
+User-agent: Devin
+Disallow: /
+
+User-agent: NovaAct
+Disallow: /
+
+User-agent: Operator
+Disallow: /
+
+User-agent: AwarioRssBot
+Disallow: /
+
+User-agent: AwarioSmartBot
+Disallow: /
+
+User-agent: DuckAssistBot
+Disallow: /
+
+User-agent: Bravebot
+Disallow: /
+
+User-agent: Brightbot 1.0
+Disallow: /
+
+User-agent: SentiBot
+Disallow: /
+
+User-agent: TikTokSpider
+Disallow: /
+
+User-agent: LinerBot
+Disallow: /
+
+User-agent: Factset_spyderbot
+Disallow: /
+
+# ----------------------------------------------------------------------
+# Everyone else (search engines, link previews, etc.)
+# ----------------------------------------------------------------------
 
 User-agent: *
 Allow: /
 Disallow: /papers/
+Crawl-delay: 10
 
 Sitemap: https://martindybdahl.com/sitemap.xml

@@ -2,20 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://martindybdahl.com/</loc>
-      <lastmod>2025-03-12</lastmod>
+      <lastmod>2026-09-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://martindybdahl.com/past.html</loc>
-      <lastmod>2025-03-12</lastmod>
+      <loc>https://martindybdahl.com/course-exposure.html</loc>
+      <lastmod>2026-09-03</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
+      <priority>0.7</priority>
    </url>
    <url>
-      <loc>https://martindybdahl.com/future.html</loc>
-      <lastmod>2025-03-12</lastmod>
+      <loc>https://martindybdahl.com/field-of-study.html</loc>
+      <lastmod>2026-09-03</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://martindybdahl.com/news-consumption.html</loc>
+      <lastmod>2026-09-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://martindybdahl.com/greenland.html</loc>
+      <lastmod>2026-09-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
 </urlset>
