@@ -192,6 +192,25 @@ nav a:hover::after {
     text-decoration: underline;
 }
 
+/* Click-to-open paper (no literal link in markup) */
+.paper-link {
+    cursor: pointer;
+    color: var(--link-color);
+    border-bottom: 1px dotted var(--link-color);
+    font-style: italic;
+}
+
+.paper-link:hover,
+.paper-link:focus {
+    border-bottom-style: solid;
+    outline: none;
+}
+
+.paper-hint {
+    font-size: 0.85em;
+    color: #777;
+}
+
 /* Detail-page helpers */
 .breadcrumb {
     margin-bottom: 20px;
