@@ -146,7 +146,7 @@
                 <ul>
                     <li><strong>APSA</strong> (American Political Science Association) &mdash; <em>Trump's Blowback Effect: Framing and Belonging of Greenland in Danish Media</em> &mdash; panel &ldquo;Screens and Scrolls: Media, Algorithms, and Political Visibility&rdquo; (Division 38: Political Communication) &mdash; Virtual, 4 September 2026. Also serving as <strong>Discussant</strong> on the panel &ldquo;Shaping Citizens: Education, Identity, and Political Behavior&rdquo; (Division 38) &mdash; 4 September 2026.</li>
                     <li><strong>ECPR</strong> General Conference &mdash; <em>Speaking for Greenland: Trump's Territorial Claim and the Sourcing of Danish Solidarity</em> &mdash; panel P560 &ldquo;U.S. Foreign Policy in Turmoil: Trump 2.0 and the Strains on U.S. International Leadership&rdquo; (Section: US Foreign Policy in Turmoil?) &mdash; Kraków, 11 September 2026.</li>
-                    <li><strong>ECPR</strong> General Conference &mdash; <em> Who Changes in College? Selection, and the Political Returns to Higher Education</em> &mdash; panel P197 &ldquo;Epistemic Governance in Higher Education: Knowledge, Power, and Citizenship&rdquo; (Section: Knowledge Politics and Policies) &mdash; Kraków, 8 September 2026. <span class="paper-hint">&mdash; click the title for the paper</span></li>
+                    <li><strong>ECPR</strong> General Conference &mdash; <em>Who Changes in College? Selection, and the Political Returns to Higher Education</em> &mdash; panel P197 &ldquo;Epistemic Governance in Higher Education: Knowledge, Power, and Citizenship&rdquo; (Section: Knowledge Politics and Policies) &mdash; Kraków, 8 September 2026.</li>
                     <li><strong>RC28</strong> (ISA Research Committee on Social Stratification and Mobility) &mdash; <em>Who Changes in College? Selection, and the Political Returns to Higher Education</em> &mdash; 2026</li>
                     <li><strong>EGN</strong> (European Graduate Network) &mdash; <em>Who Changes in College? Selection, and the Political Returns to Higher Education</em> &mdash; 26&ndash;27 March 2026</li>
                     <li><strong>Annual Political Science Workshops of the Low Countries</strong> &mdash; <em>Who Changes in College? Selection, and the Political Returns to Higher Education</em> &mdash; workshop &ldquo;Electoral Behaviour in Times of Political Change: Theoretical Explanations and (Early) Empirical Evidence&rdquo; &mdash; Ghent University, Belgium, 2026</li>
@@ -278,29 +278,6 @@
             });
         }, { rootMargin: '-40% 0px -55% 0px' });
         sections.forEach((section) => observer.observe(section));
-
-        // Gated paper access: no literal file path in the markup. The target
-        // is assembled at click time from an obfuscated token, so it is not
-        // present as a plain link for scrapers to harvest.
-        (function () {
-            var tokens = {
-                wcic: 'ZmRwLnNucnV0ZXItbGFjaXRpbG9wLTYyMDItbGhhZGJ5ZC9zcmVwYXA='
-            };
-            function resolve(key) {
-                try { return atob(tokens[key]).split('').reverse().join(''); }
-                catch (e) { return null; }
-            }
-            function openPaper(key) {
-                var path = resolve(key);
-                if (path) window.location.href = path;
-            }
-            document.querySelectorAll('.paper-link[data-paper]').forEach(function (el) {
-                el.addEventListener('click', function () { openPaper(el.dataset.paper); });
-                el.addEventListener('keydown', function (e) {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPaper(el.dataset.paper); }
-                });
-            });
-        })();
     </script>
 </body>
 </html>
